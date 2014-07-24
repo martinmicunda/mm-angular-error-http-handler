@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MM Angular Exception Error Handler Demo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body ng-app="customErrorHttpHandlerDemo">
+    <div ng-controller="ExceptionHandlerController">
+        <p>Reload this page with open console and hit the cause http error button...</p>
+        <button ng-click="cause404Error()">cause 404 http error</button>
+        <button ng-click="cause500Error()">cause 500 http error</button>
+    </div>
+
+    <ui-view></ui-view>
+
+    <!-- bower:js -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/mm-angular-logger/dist/mm-angular-logger.js"></script>
+    <!-- endbower -->
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script type="text/javascript" src="../src/mm-angular-error-http-handler.js"></script>
+
+    <script>
+        angular.module('customErrorHttpHandlerDemo', ['mm.errorHttpHandler', 'ui.router'])
+            .config(['errorHttpHandlerProvider', '$stateProvider', '$locationProvider', function (errorHttpHandlerProvider, $stateProvider, $locationProvider) {
+                errorHttpHandlerProvider.setConfigAppErrorPrefix('demoApp');
+                errorHttpHandlerProvider.setConfigCustomDns('http://localhost:9000/error');
+
+                $locationProvider.html5Mode(true);
+                $stateProvider
+                    .state('404', {
+                        url: '/404',
+                        templateUrl: '404.html'
+                    })
+                    .state('500', {
+                        url: '/500',
+                        templateUrl: '500.html'
+                    });
+            }])
+            .controller('ExceptionHandlerController', ['$scope', 'Logger', '$http', function($scope, Logger, $http) {
+                $scope.logger = Logger.getLogger('LoggerController');
+                $scope.cause404Error = function() {
+                    $http({method: 'GET', url: '/error404'});
+                };
+                $scope.cause500Error = function() {
+                    $http({method: 'GET', url: '/error500'});
+                };
+            }]);
+    </script>
+
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+</body>
+</html>
