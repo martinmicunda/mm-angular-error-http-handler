@@ -1,6 +1,6 @@
 /**
  * An angular module that handle $http request error.
- * @version v0.0.0 - 2014-07-24
+ * @version v0.0.1 - 2014-07-24
  * @link https://github.com/martinmicunda/mm-angular-error-http-handler
  * @author Martin Micunda
  * @copyright 2014(c) Martin Micunda
