@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/martinmicunda/mm-angular-error-http-handler.png)](http://travis-ci.org/martinmicunda/mm-angular-error-http-handler) [![devDependency Status](https://david-dm.org/martinmicunda/mm-angular-error-http-handler/dev-status.png)](https://david-dm.org/martinmicunda/mm-angular-error-http-handler#info=devDependencies) [![Coverage Status](https://coveralls.io/repos/martinmicunda/mm-angular-error-http-handler/badge.png?branch=master)](https://coveralls.io/r/martinmicunda/mm-angular-error-http-handler?branch=master)
+[![Bower version](https://badge.fury.io/bo/mm-angular-error-http-handler.svg)](http://badge.fury.io/bo/mm-angular-error-http-handler) [![Build Status](https://secure.travis-ci.org/martinmicunda/mm-angular-error-http-handler.png)](http://travis-ci.org/martinmicunda/mm-angular-error-http-handler) [![Coverage Status](https://coveralls.io/repos/martinmicunda/mm-angular-error-http-handler/badge.png?branch=master)](https://coveralls.io/r/martinmicunda/mm-angular-error-http-handler?branch=master)
 
  mm-angular-error-http-handler
 ===================
