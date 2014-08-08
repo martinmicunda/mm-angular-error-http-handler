@@ -5,9 +5,10 @@
 
 The `mm.errorHttpHandler` module checks if any [`$http`](https://docs.angularjs.org/api/ng/service/$http) request has failed and if so automatically posts the error to [`Sentry`](https://getsentry.com/) or some custom reporting tool. For any http error you will be redirect to follow pages:
 
-- 404 error status -> /404
-- 0 error status   -> /500
-- any other error  -> /500
+- 400 error status -> /400 (Bad Request)
+- 404 error status -> /404 (Not Found)
+- 0 error status   -> /500 (Network Error)
+- any other error  -> /500 (Internal Server Error)
 
 > **Note:** It's up to you how you gonna handle route in your application and implement UI templates for each error. Have look for simple example in [demo](demo/index.html) and [gulp serve](https://github.com/martinmicunda/mm-angular-error-http-handler/blob/master/gulpfile.js#L243) task.
 
