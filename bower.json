@@ -1,7 +1,7 @@
 {
   "name": "mm-angular-error-http-handler",
   "description": "An angular module that handle $http request error.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/martinmicunda/mm-angular-error-http-handler",
   "author": {
     "name": "Martin Micunda",
