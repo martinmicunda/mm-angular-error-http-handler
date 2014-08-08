@@ -10,9 +10,10 @@
      * The `mm.errorHttpHandler` module checks if any $http request has failed and if so automatically posts the error to {@link https://getsentry.com/ `Sentry`)
      * or some custom reporting tool. For any http error you will be redirect to follow pages:
      *
-     * - 404 error status -> /404
-     * - 0 error status   -> /500
-     * - any other error  -> /500
+     * - 400 error status -> /400 (Bad Request)
+     * - 404 error status -> /404 (Not Found)
+     * - 0 error status   -> /500 (Network Error)
+     * - any other error  -> /500 (Internal Server Error)
      * > **Note:** It's up to you how you gonna handle route in your application and implement UI templates for each error.
      *
      * # Usage
@@ -184,6 +185,10 @@
                         logger.error(loggingError.toString());
                     }
                     switch (rejection.status) {
+                        case 400:
+                            $location.path('/400');
+                            logger.error('{0} {1} \'{2}\'', [rejection.status, rejection.statusText, rejection.config.url]);
+                            break;                        
                         case 404:
                             $location.path('/404');
                             logger.error('{0} {1} \'{2}\'', [rejection.status, rejection.statusText, rejection.config.url]);
